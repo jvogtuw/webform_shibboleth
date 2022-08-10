@@ -1,0 +1,10 @@
+name: Webform Shibboleth
+type: module
+description: Provides option to require Shibboleth authentication for a Webform without (or with) the Shibboleth Path module.
+package: Custom
+core_version_requirement: ^9
+version: 1.0.0
+
+dependencies:
+  - shibboleth:shibboleth
+  - webform:webform

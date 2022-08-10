@@ -1,0 +1,29 @@
+<?php
+
+/**
+ * @file
+ * This file contains the hooks for the webform_shibboleth module.
+ */
+
+/**
+ * Implements hook_form_FORM_ID_alter().
+ *
+ * Adds a setting to the Webform Access form for requiring Shibboleth
+ * authentication.
+ */
+function webform_shibboleth_form_webform_settings_access_form_alter(&$form, \Drupal\Core\Form\FormStateInterface &$form_state, $form_id) {
+
+  /** @var Drupal\webform\EntitySettings\WebformEntitySettingsAccessForm $entity_form */
+  $entity_form = $form_state->getFormObject();
+  /** @var \Drupal\webform\WebformInterface $webform */
+  $webform = $entity_form->getEntity();
+  $access_rules = $webform->getAccessRules($webform);
+
+  $form['access']['create']['shibboleth'] = [
+    '#type' => 'checkbox',
+    '#title' => t('Require Shibboleth authentication'),
+    '#description' => t('To further restrict access, use the Shibboleth Path module.'),
+    '#default_value' => $access_rules['create']['shibboleth'],
+  ];
+}
+

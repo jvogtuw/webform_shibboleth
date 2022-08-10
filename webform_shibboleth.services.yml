@@ -1,0 +1,7 @@
+services:
+  webform_shibboleth.access_subscriber:
+    class: Drupal\webform_shibboleth\EventSubscriber\WebformShibbolethAccessSubscriber
+    arguments: [ '@shibboleth.auth_manager' ]
+#    arguments: [ '@shibboleth.auth_manager', '@shibboleth_path.access_check', '@current_user', '@session_manager' ]
+    tags:
+      - { name: event_subscriber }
