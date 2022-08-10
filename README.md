@@ -1,5 +1,6 @@
 Webform Shibboleth
 ===
+![Webform Shibboleth version 1.0.0](https://img.shields.io/static/v1?label=version&message=v1.0.0&color=green)
 
 This module provides the option to put a Webform behind Shibboleth protection
 without requiring the Shibboleth path module.
